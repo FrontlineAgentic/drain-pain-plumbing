@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { DM_Sans, Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import MobileCallBar from "@/components/layout/MobileCallBar";
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
@@ -43,7 +46,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${dmSans.variable} ${syne.variable} ${dmMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        <main className="pt-16 flex-1">{children}</main>
+        <Footer />
+        <MobileCallBar />
+      </body>
     </html>
   );
 }
