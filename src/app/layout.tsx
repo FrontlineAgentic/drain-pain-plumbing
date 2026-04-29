@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCallBar from "@/components/layout/MobileCallBar";
+import CinematicIntro from "@/components/CinematicIntro";
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
@@ -47,8 +48,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${dmSans.variable} ${syne.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <CinematicIntro />
         <Header />
-        <main className="pt-16 flex-1">{children}</main>
+        <main className="pt-20 flex-1">{children}</main>
         <Footer />
         <MobileCallBar />
       </body>
