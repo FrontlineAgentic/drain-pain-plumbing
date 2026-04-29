@@ -1,33 +1,43 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { DM_Sans, Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const syne = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const dmMono = DM_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Drain Pain Plumbing | Jacksonville, NC",
-  description: "Licensed plumbers in Jacksonville, NC. 24/7 emergency service, drain cleaning, water heaters, and more.",
+  title: {
+    default: "Drain Pain Plumbing | Licensed Plumber Jacksonville NC | 910-542-1263",
+    template: "%s | Drain Pain Plumbing",
+  },
+  description:
+    "Drain Pain Plumbing — Jacksonville NC's licensed, insured plumber. Drain cleaning, hydro-jetting, water heaters, 24/7 emergency service. Call 910-542-1263.",
+  metadataBase: new URL("https://www.drainpainplumbing.com"),
+  openGraph: {
+    siteName: "Drain Pain Plumbing",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
