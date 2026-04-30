@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroVideo from "@/components/home/HeroVideo";
 import TrustBar from "@/components/home/TrustBar";
 import ServicesGrid from "@/components/home/ServicesGrid";
+import HowItWorks from "@/components/home/HowItWorks";
 import KyleStrip from "@/components/home/KyleStrip";
 import MilitarySection from "@/components/home/MilitarySection";
 import ReviewsStrip from "@/components/home/ReviewsStrip";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <HeroVideo />
       <TrustBar />
       <ServicesGrid />
+      <HowItWorks />
       <KyleStrip />
       <MilitarySection />
       <ReviewsStrip />
