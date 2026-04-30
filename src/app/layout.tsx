@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <CinematicIntro />
         <Header />
-        <main className="pt-20 flex-1">{children}</main>
+        <main className="pt-[6.75rem] flex-1">{children}</main>
         <Footer />
         <MobileCallBar />
       </body>

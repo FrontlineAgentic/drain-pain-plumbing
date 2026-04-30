@@ -3,9 +3,12 @@ import HeroVideo from "@/components/home/HeroVideo";
 import TrustBar from "@/components/home/TrustBar";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
+import PhotoStrip from "@/components/home/PhotoStrip";
 import KyleStrip from "@/components/home/KyleStrip";
+import BeforeAfter from "@/components/home/BeforeAfter";
 import MilitarySection from "@/components/home/MilitarySection";
 import ReviewsStrip from "@/components/home/ReviewsStrip";
+import FAQ from "@/components/home/FAQ";
 import ServiceAreas from "@/components/home/ServiceAreas";
 import FinalCTABanner from "@/components/home/FinalCTABanner";
 import LocalBusinessSchema from "@/components/shared/LocalBusinessSchema";
@@ -27,9 +30,12 @@ export default function HomePage() {
       <TrustBar />
       <ServicesGrid />
       <HowItWorks />
+      <PhotoStrip />
       <KyleStrip />
+      <BeforeAfter />
       <MilitarySection />
       <ReviewsStrip />
+      <FAQ />
       <ServiceAreas />
       <FinalCTABanner />
     </>

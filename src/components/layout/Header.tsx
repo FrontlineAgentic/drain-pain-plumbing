@@ -16,7 +16,21 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A1628] shadow-lg h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A1628] shadow-lg">
+      {/* Emergency strip */}
+      <div className="bg-[#c0390a] text-white text-sm py-1.5 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3">
+          <span className="relative flex h-2 w-2 flex-shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+          </span>
+          <span className="font-medium">Plumbing emergency? We answer 24/7.</span>
+          <a href="tel:+19105421263" className="font-bold underline underline-offset-2 hover:no-underline">
+            Call 910-542-1263 →
+          </a>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex-shrink-0">
