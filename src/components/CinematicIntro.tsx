@@ -32,12 +32,13 @@ export default function CinematicIntro() {
         pointerEvents: opacity < 0.05 ? "none" : "auto",
       }}
     >
-      {/* Kling AI intro video fullscreen */}
+      {/* Kling AI intro video fullscreen — preload for quality */}
       <video
         src="/videos/hero-loop.mp4"
         autoPlay
         muted
         playsInline
+        preload="auto"
         onEnded={finish}
         onError={() => finish()}
         className="absolute inset-0 w-full h-full object-cover"
