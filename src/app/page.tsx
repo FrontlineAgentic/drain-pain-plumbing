@@ -5,7 +5,6 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import PhotoStrip from "@/components/home/PhotoStrip";
 import KyleStrip from "@/components/home/KyleStrip";
-import BeforeAfter from "@/components/home/BeforeAfter";
 import MilitarySection from "@/components/home/MilitarySection";
 import ReviewsStrip from "@/components/home/ReviewsStrip";
 import FAQ from "@/components/home/FAQ";
@@ -32,7 +31,6 @@ export default function HomePage() {
       <HowItWorks />
       <PhotoStrip />
       <KyleStrip />
-      <BeforeAfter />
       <MilitarySection />
       <ReviewsStrip />
       <FAQ />
