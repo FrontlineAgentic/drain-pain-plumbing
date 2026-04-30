@@ -5,8 +5,6 @@
   --color-navy-light: #1B3A5C;
   --color-orange: #E8651A;
   --color-orange-light: #F97316;
-  --color-gray-light: #F5F7FA;
-  --color-gray-text: #6B7280;
   --color-trust-green: #22C55E;
 
   --font-sans: "DM Sans", system-ui, sans-serif;
@@ -14,16 +12,29 @@
   --font-mono: "DM Mono", monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
-  color: #111827;
-  background: #ffffff;
+  color: #f1f0ea;
+  background: #0A1628;
 }
+
+/* ── Scroll reveal ───────────────────────────────────── */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: revealUp 0.7s ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }

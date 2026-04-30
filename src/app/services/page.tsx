@@ -77,37 +77,43 @@ export default function ServicesPage() {
         subtitle="Licensed, insured, and done right. From clogged drains to full water line repairs."
       />
 
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <section className="py-20 bg-[#0A1628]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           {services.map((service) => (
             <div
               key={service.id}
               id={service.id}
-              className={`rounded-2xl p-8 ${service.featured ? "bg-[#0A1628] text-white border-2 border-[#E8651A]" : "bg-[#F5F7FA]"}`}
+              className={`rounded-2xl p-8 border transition-all ${
+                service.featured
+                  ? "bg-[#E8651A]/8 border-[#E8651A]/40"
+                  : "bg-white/4 border-white/8 hover:bg-white/6 hover:border-white/15"
+              }`}
             >
               {service.featured && (
-                <span className="inline-block bg-[#E8651A] text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
+                <span className="inline-block bg-[#E8651A] text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide">
                   Our Specialty — Only Hydro-Jetter in Onslow County
                 </span>
               )}
               <div className="text-4xl mb-4">{service.icon}</div>
               <h2
-                className={`text-2xl md:text-3xl font-bold mb-4 ${service.featured ? "text-white" : "text-[#0A1628]"}`}
+                className="text-2xl md:text-3xl font-bold mb-4 text-white"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {service.name}
               </h2>
-              <p className={`text-lg leading-relaxed mb-6 ${service.featured ? "text-white/80" : "text-[#374151]"}`}>
+              <p className="text-lg leading-relaxed mb-6 text-white/60">
                 {service.description}
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <span className={`text-sm font-semibold font-mono ${service.featured ? "text-[#E8651A]" : "text-[#6B7280]"}`}>
+                <span className="text-sm font-semibold font-mono text-[#E8651A]/80">
                   {service.priceNote}
                 </span>
                 <a
                   href="tel:+19105421263"
-                  className={`inline-block font-bold px-6 py-3 rounded-lg text-center transition-colors ${
-                    service.featured ? "bg-[#E8651A] hover:bg-[#F97316] text-white" : "bg-[#0A1628] hover:bg-[#1B3A5C] text-white"
+                  className={`inline-flex items-center justify-center gap-2 font-bold px-6 py-3 rounded-lg text-center transition-all hover:scale-[1.02] ${
+                    service.featured
+                      ? "bg-[#E8651A] hover:bg-[#F97316] text-white shadow-[0_0_25px_rgba(232,101,26,0.3)]"
+                      : "bg-white/8 hover:bg-white/15 text-white border border-white/15"
                   }`}
                 >
                   Call to Book — 910-542-1263

@@ -8,12 +8,12 @@ const trustItems = [
 
 export default function TrustBar() {
   return (
-    <div className="bg-[#1B3A5C] py-4 border-y border-[#E8651A]/30">
+    <div className="bg-[#080f1e] py-4 border-y border-white/8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2">
           {trustItems.map((item) => (
-            <li key={item} className="flex items-center gap-2 text-white text-sm font-medium">
-              <span className="text-[#22C55E] font-bold">✓</span>
+            <li key={item} className="flex items-center gap-2 text-white/60 text-sm font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
               {item}
             </li>
           ))}

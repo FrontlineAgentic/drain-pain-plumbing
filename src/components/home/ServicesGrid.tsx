@@ -1,45 +1,42 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
   {
-    icon: "💧",
     name: "Hydro-Jetting",
-    description: "Our custom-built rig blasts grease, roots, and buildup completely out of the line. The only hydro-jetter operated by an independent plumber in Onslow County.",
+    description: "The only hydro-jetter operated by an independent plumber in Onslow County. Custom-built rig that blasts grease, roots, and buildup out completely.",
     href: "/services#hydro-jetting",
     featured: true,
+    image: "/images/hydro-jetting.jpg",
   },
   {
-    icon: "🚿",
     name: "Drain Lines",
-    description: "Clogged or slow drains cleared fast — kitchen, bath, floor drains, and everything in between. No mess left behind.",
+    description: "Clogged or slow drains cleared fast — kitchen, bath, floor drains. No mess left behind.",
     href: "/services#drain-lines",
     featured: false,
   },
   {
-    icon: "💦",
     name: "Water Lines",
-    description: "Leaking, broken, or undersized water lines repaired and replaced. We find the source and fix it right the first time.",
+    description: "Leaking, broken, or undersized water lines repaired and replaced. Fixed right the first time.",
     href: "/services#water-lines",
     featured: false,
   },
   {
-    icon: "🔥",
     name: "Water Heaters",
-    description: "Repair or full replacement — traditional tank and tankless. Same-day service available when you're out of hot water.",
+    description: "Tank and tankless repair or replacement. Same-day service when you're out of hot water.",
     href: "/services#water-heaters",
     featured: false,
+    image: "/images/water-heaters.jpg",
   },
   {
-    icon: "🔧",
     name: "Sump Pumps",
     description: "Installation, repair, and replacement. Keep your basement or crawl space dry year-round.",
     href: "/services#sump-pumps",
     featured: false,
   },
   {
-    icon: "🗑️",
     name: "Garbage Disposals",
-    description: "Installation and repair of all major disposal brands. Quick turnaround, no callbacks.",
+    description: "Installation and repair of all major brands. Quick turnaround, no callbacks.",
     href: "/services#garbage-disposals",
     featured: false,
   },
@@ -47,49 +44,86 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-20 bg-[#F5F7FA]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+    <section className="py-24 bg-[#080f1e] relative overflow-hidden">
+      {/* Subtle top gradient continuation from hero */}
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0A1628] to-transparent pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 reveal">
+          <p className="text-[#E8651A] font-semibold text-sm uppercase tracking-[0.25em] mb-3">Services</p>
           <h2
-            className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4"
+            className="text-4xl md:text-5xl font-bold text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             What We Fix
           </h2>
-          <p className="text-[#6B7280] text-lg max-w-2xl mx-auto">
-            From clogged drains to full water line repairs — licensed, insured, and done right.
+          <p className="text-white/50 text-lg mt-4 max-w-xl">
+            From clogged drains to full water line repairs — licensed, insured, done right.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((service, i) => (
             <Link
               key={service.name}
               href={service.href}
-              className={`relative group rounded-xl p-6 bg-white border-2 transition-all hover:shadow-lg hover:-translate-y-1 ${
+              className={`reveal reveal-delay-${Math.min(i + 1, 3)} group relative rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 ${
                 service.featured
-                  ? "border-[#E8651A] shadow-md"
-                  : "border-transparent hover:border-[#E8651A]/30"
+                  ? "border-[#E8651A]/50 bg-[#E8651A]/8 row-span-1 lg:col-span-1"
+                  : "border-white/8 bg-white/4 hover:bg-white/8 hover:border-white/20"
               }`}
             >
-              {service.featured && (
-                <span className="absolute -top-3 left-6 bg-[#E8651A] text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Our Specialty
-                </span>
+              {/* Photo background for cards that have images */}
+              {service.image && (
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60" />
+                  {service.featured && (
+                    <span className="absolute top-4 left-4 bg-[#E8651A] text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide">
+                      Our Specialty
+                    </span>
+                  )}
+                </div>
               )}
-              <div className="text-3xl mb-3">{service.icon}</div>
-              <h3
-                className="text-[#0A1628] font-bold text-xl mb-2"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {service.name}
-              </h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">{service.description}</p>
-              <span className="mt-4 inline-block text-[#E8651A] text-sm font-semibold group-hover:underline">
-                Learn more →
-              </span>
+
+              <div className="p-6">
+                {!service.image && service.featured && (
+                  <span className="inline-block bg-[#E8651A] text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide">
+                    Our Specialty
+                  </span>
+                )}
+                <h3
+                  className="text-white font-bold text-xl mb-2"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {service.name}
+                </h3>
+                <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors">
+                  {service.description}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-[#E8651A] text-sm font-semibold group-hover:gap-3 transition-all">
+                  Learn more
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12 text-center reveal">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 border border-white/20 hover:border-[#E8651A]/50 text-white/70 hover:text-white px-6 py-3 rounded-lg text-sm font-medium transition-all"
+          >
+            View All Services →
+          </Link>
         </div>
       </div>
     </section>

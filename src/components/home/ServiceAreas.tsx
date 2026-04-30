@@ -10,15 +10,16 @@ const cities = [
 
 export default function ServiceAreas() {
   return (
-    <section className="py-16 bg-[#F5F7FA]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-16 bg-[#0A1628] border-t border-white/6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <p className="text-[#E8651A] font-semibold text-sm uppercase tracking-[0.25em] mb-3">Service Area</p>
         <h2
-          className="text-3xl font-bold text-[#0A1628] mb-4"
+          className="text-3xl font-bold text-white mb-3"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Serving Onslow County &amp; Beyond
         </h2>
-        <p className="text-[#6B7280] mb-8">
+        <p className="text-white/40 mb-8">
           Fast response times throughout Jacksonville and the surrounding area.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
@@ -26,9 +27,10 @@ export default function ServiceAreas() {
             <Link
               key={city.name}
               href={city.href}
-              className="bg-white border-2 border-[#0A1628]/10 hover:border-[#E8651A] hover:text-[#E8651A] text-[#0A1628] font-semibold px-6 py-3 rounded-full transition-colors text-sm"
+              className="flex items-center gap-1.5 bg-white/5 border border-white/10 hover:border-[#E8651A]/50 hover:text-[#E8651A] hover:bg-[#E8651A]/5 text-white/70 font-semibold px-6 py-2.5 rounded-full transition-all text-sm"
             >
-              📍 {city.name}
+              <span className="text-[#E8651A]/60 text-xs">📍</span>
+              {city.name}
             </Link>
           ))}
         </div>
